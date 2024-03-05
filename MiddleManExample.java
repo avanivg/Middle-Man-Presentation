@@ -17,6 +17,7 @@ class Customer {
     }
 }
 
+// class to represent the order, with item and cost
 class Order {
     private String item;
     private double cost;
@@ -31,6 +32,7 @@ class Order {
     }
 }
 
+// customer service class to handle customer/order interactions
 class CustomerService {
     private Customer customer;
     private Order order;
@@ -61,9 +63,9 @@ class CustomerService {
 
 public class MiddleManExample {
     public static void main(String[] args) {
+        // customer, order, customer service values
         Customer customer = new Customer("John Doe", "123 Main St");
         Order order = new Order("Sweater", 22.45);
-
         CustomerService customerService = new CustomerService(customer, order);
 
         String customerName = customerService.getCustomerName();

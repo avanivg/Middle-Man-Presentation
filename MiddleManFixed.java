@@ -1,4 +1,4 @@
-// Class to represent customer, with name and address.
+// Class to represent customer, with name and address
 class Customer {
     private String name;
     private String address;
@@ -17,6 +17,7 @@ class Customer {
     }
 }
 
+// class to represent the order, with item and cost
 class Order {
     private String item;
     private double cost;
@@ -28,6 +29,13 @@ class Order {
 
     public String getItem() {
         return item;
+    }
+}
+
+// customer service class to handle customer/order interactions
+class CustomerService {
+    public void shipOrder(Order order) {
+        // code to ship order
     }
 }
 
