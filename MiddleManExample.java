@@ -1,4 +1,4 @@
-//Class to represent customer, with name and address 
+//Class to represent customer, with name and address
 class Customer {
     private String name;
     private String address;
@@ -42,22 +42,16 @@ class CustomerService {
         this.order = order;
     }
 
-    // delegates the call to get the name of the customer to the Customer
-    public String getCustomerName() {
-        return customer.getName();
-    }
-
-    // delegates the call to get the address of the customer to Customer
-    public String getCustomerAddress() {
-        return customer.getAddress();
-    }
-
     public String getOrderItem() {
         return order.getItem();
     }
 
     public void shipOrder(Order order) {
         // code to ship order
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 }
 
@@ -68,8 +62,8 @@ public class MiddleManExample {
         Order order = new Order("Sweater", 22.45);
         CustomerService customerService = new CustomerService(customer, order);
 
-        String customerName = customerService.getCustomerName();
-        String customerAddress = customerService.getCustomerAddress();
+        String customerName = customerService.getCustomer().getName();
+        String customerAddress = customerService.getCustomer().getAddress();
 
         String itemToShip = customerService.getOrderItem();
 

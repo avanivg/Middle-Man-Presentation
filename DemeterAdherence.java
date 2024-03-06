@@ -1,42 +1,61 @@
-// class to represent a person
-class Person {
-    private Department department;
+//class to define Employee object
+class Employee {
 
-    public Person() {
-        this.department = new Department();
-    }
-
-    public void printDepartmentManager() {
-        System.out.println(department.getManagerName());
-    }
-}
-
-// class to represent a department
-class Department {
+    private Department department = new Department();
     private Manager manager;
 
-    public Department() {
-        this.manager = new Manager("John");
+    Employee(Manager manager) {
+        this.manager = manager;
     }
 
-    public String getManagerName() {
-        return manager.getName();
+    void submitExpense(Expenses expenses) {
+        manager.approveExpense(expenses);
+    }
+
+    public Department getDepartment() {
+        return department;
     }
 }
 
-// class to represent a manager
-class Manager {
-    private String name;
+// class to define Department object
+class Department {
+    private Manager manager = new Manager();
 
-    public Manager(String name) {
-        this.name = name;
+    public Manager getManager() {
+        return manager;
+    }
+}
+
+// Manager object
+class Manager {
+    public void approveExpense(Expenses expenses) {
+        System.out.println("Total amounts approved" + expenses.total());
+    }
+}
+
+class Expenses {
+
+    private double total;
+    private double tax;
+
+    public Expenses(double total, double tax) {
+        this.total = total;
+        this.tax = tax;
     }
 
-    public String getName() {
-        return name;
+    public double total() {
+        return total + tax;
     }
 }
 
 public class DemeterAdherence {
+    public static void main(String args[]) {
+        Expenses expenses = new Expenses(100, 10);
+
+        Manager mgr = new Manager();
+        Employee employee = new Employee(mgr);
+
+        employee.submitExpense(expenses);
+    }
 
 }
